@@ -1,23 +1,46 @@
 import {React,useState} from 'react';
-
+import {TaskCustom} from "./styled.js";
 
 export default function TodoList() {
 
   const [todoTitle, setTodoTitle] = useState("");
+  const [todoTask, setTodoTask] = useState("");
+  const [storage, setStorage] = useState([]);
+  
 
-  const todoTitleInput = (setTodoStorage) => {
-
+  const todoInput = (event,saveText) => {
+    saveText(event.target.value)
   }
 
+  const addButton = () => {
+    setStorage([...storage,todoTitle,todoTask])
+  }
+  console.log(storage);
   return (
     <div>
-    <input >
+    <input onChange={((event,saveText)=>{
+      todoInput(event,setTodoTitle)
+    })} >
     </input>
-    <textarea>
+    <textarea onChange={((event,saveText)=>{
+      todoInput(event,setTodoTask)
+      })}>
 
     </textarea>
-    <button>add</button>
+    <button onClick={addButton}>add</button>
+    <div>
+      {storage.map((taskItem,index) => {
+      return(
+        <TaskCustom key={index}>
+    <li>{taskItem}</li>
+
+        </TaskCustom>
+      )
+
+    })}
     </div>
+    
+    </div> 
   );
 }
 
