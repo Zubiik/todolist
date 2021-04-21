@@ -1,5 +1,5 @@
 import {React,useState} from 'react';
-import {TaskCustom} from "./styled.js";
+import {TaskCustom, InputCustom} from "./styled.js";
 
 export default function TodoList() {
 
@@ -17,7 +17,7 @@ export default function TodoList() {
   }
   console.log(storage);
   return (
-    <div>
+    <InputCustom>
     <input onChange={((event,saveText)=>{
       todoInput(event,setTodoTitle)
     })} >
@@ -40,7 +40,7 @@ export default function TodoList() {
     })}
     </div>
     
-    </div> 
+    </InputCustom> 
   );
 }
 
