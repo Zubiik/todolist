@@ -1,28 +1,32 @@
 import {React,useState} from 'react';
-import {TaskCustom, InputCustom} from "./styled.js";
+import {TaskCustom, BodyCustom, InputCustomTitle, InputCustomText, Checkbox} from "./styled.js";
 
 export default function TodoList() {
 
   const [todoTitle, setTodoTitle] = useState("");
   const [todoTask, setTodoTask] = useState("");
   const [storage, setStorage] = useState([]);
-  
+
 
   const todoInput = (event,saveText) => {
     saveText(event.target.value)
   }
 
   const addButton = () => {
-    setStorage([...storage,todoTitle,todoTask])
+    setStorage([...storage,{title: todoTitle, text: todoTask}])
+
   }
   console.log(storage);
   return (
-    <InputCustom>
-    <input onChange={((event,saveText)=>{
+    <BodyCustom>
+    <p>
+      TODO LIST
+    </p>
+    <input placeholder="Title" onChange={((event,saveText)=>{
       todoInput(event,setTodoTitle)
     })} >
     </input>
-    <textarea onChange={((event,saveText)=>{
+    <textarea   placeholder="Task" onChange={((event,saveText)=>{
       todoInput(event,setTodoTask)
       })}>
 
@@ -32,15 +36,17 @@ export default function TodoList() {
       {storage.map((taskItem,index) => {
       return(
         <TaskCustom key={index}>
-    <li>{taskItem}</li>
-
+          <div>
+            <InputCustomTitle>{taskItem.title}</InputCustomTitle>
+            <InputCustomText>{taskItem.text}</InputCustomText>
+            <Checkbox type="checkbox"/>
+          </div>
         </TaskCustom>
       )
 
     })}
     </div>
     
-    </InputCustom> 
+    </BodyCustom> 
   );
 }
-

@@ -3,10 +3,16 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import TodoList from './TodoList';
 import reportWebVitals from './reportWebVitals';
+import { ThemeProvider} from '@emotion/react';
+import { theme } from "./theme";
+
 
 ReactDOM.render(
   <React.StrictMode>
+  
+    <ThemeProvider theme={theme}>
     <TodoList />
+    </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
