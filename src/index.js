@@ -1,18 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import TodoList from './TodoList';
+import './styled.js';
+import TodoList from './creationtodolist/TodoList';
 import reportWebVitals from './reportWebVitals';
 import { ThemeProvider} from '@emotion/react';
 import { theme } from "./theme";
+import {HomeBody} from './styled';
 
 
 ReactDOM.render(
   <React.StrictMode>
-  
-    <ThemeProvider theme={theme}>
+  <HomeBody>
+     <ThemeProvider theme={theme}>
     <TodoList />
-    </ThemeProvider>
+    </ThemeProvider></HomeBody>
+   
   </React.StrictMode>,
   document.getElementById('root')
 );
