@@ -11,9 +11,7 @@ min-width:80px;
 export const BodyCustom = styled.div `
 border: solid 1px pink;
 display:flex;
-flex-direction: column;
 align-items:flex-start;
-max-width:30%;
 `;
 
 export const InputCustomTitle = styled.div`
@@ -26,4 +24,9 @@ border: solid 1px black;
 
 export const Checkbox = styled.input`
 border: solid 1px black;
+`;
+
+export const CreateTaskZone = styled.div`
+display:flex;
+flex-direction: column;
 `;
