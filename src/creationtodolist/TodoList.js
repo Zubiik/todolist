@@ -37,9 +37,9 @@ export default function TodoList({moovePostit}) {
       todoInput(event,setTodoTask)
       })}>
     </InputCreateText>
-
-    <AddButton onClick={addButton}>add</AddButton>
+    <AddButton onClick={addButton}>ADD</AddButton>
     </InputCustom>
+    
     <div>
       {storage.map((taskItem,index) => {
       return(
@@ -51,8 +51,8 @@ export default function TodoList({moovePostit}) {
             <button onClick={() => {
               urgentButton(index)
             }}>Urgentclic</button>
-
           </div>
+
         </TaskCustom>
       )
 

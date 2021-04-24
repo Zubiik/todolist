@@ -1,11 +1,13 @@
 import styled from '@emotion/styled'
 
 export const TaskCustom = styled.div`
-border: solid 1px black;
 margin:10px;
 display:flex;
-min-height:80px;
-min-width:80px;
+justify-content:center;
+min-width:200px;
+background-color:${({theme}) => theme.color.lightBlue};
+border-radius:5px;
+
 `;
 
 export const BodyCustom = styled.div `
@@ -61,11 +63,8 @@ border-radius:5px;
 margin:5px;
 `;
 
-export const InputCreateText = styled.input`
-display:flex;
-width:200px;
-border-radius:5px;
-height:30px;
+export const InputCreateText = styled(InputCreateTitle)`
+height:40px;
 
 
 `;
