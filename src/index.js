@@ -14,7 +14,6 @@ ReactDOM.render(
      <ThemeProvider theme={theme}>
     <TodoList />
     </ThemeProvider></HomeBody>
-   
   </React.StrictMode>,
   document.getElementById('root')
 );

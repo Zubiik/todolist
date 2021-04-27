@@ -1,12 +1,28 @@
 import {React} from 'react';
-import {BodyCustom} from '../urgent/styled';
+import {BodyCustom, TaskCustom,TitleCustom} from './styled';
 
-export default function UrgentZone() {
+export default function NonUrgentZone({storage}) {
 
   return (
 
     <BodyCustom>
-     <p>Liste qui peut attendre</p>
+      <TitleCustom>Liste des task peu urgentes</TitleCustom>
+      {
+        storage.map((task,index) => {
+         if (task.statut === "nonUrgent") {
+
+             return(
+            <TaskCustom>
+              <div>{task.title}</div>
+              <div>{task.text}</div>
+
+            </TaskCustom>
+          )
+         }
+         return null;
+       
+        })
+      }
     </BodyCustom> 
   );
 }

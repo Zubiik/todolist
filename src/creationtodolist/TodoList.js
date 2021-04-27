@@ -1,5 +1,5 @@
 import {React,useState} from 'react';
-import {TaskCustom, InputCreateTitle,InputCreateText, BodyCustom,AddButton, InputCustom, InputCustomTitle, InputCustomText, Checkbox,CreateTaskZone} from "./styled.js";
+import {TaskCustom,ChangeStatutButton,ContainerChangeStatutButton, InputCreateTitle,InputCreateText, BodyCustom,AddButton, InputCustom, InputCustomTitle, InputCustomText, Checkbox,CreateTaskZone} from "./styled.js";
 import UrgentZone from '../urgent/UrgentZone';
 import NonUrgentZone from '../pasurgent/NonUrgentZone';
 
@@ -21,47 +21,67 @@ export default function TodoList({moovePostit}) {
     storageCopy[index].statut = "urgent";
     setStorage([...storageCopy]);
   }
+const supprButton = (index) => {
+    
+  }
+
+  const nonUrgentButton = (index) => {
+    var storageCopy = storage;
+    storageCopy[index].statut = "nonUrgent";
+    setStorage([...storageCopy]);
+  }
 
   const addButton = () => {
-    setStorage([...storage, {statut:"default", title: todoTitle, text: todoTask}])
+    setStorage([...storage, {statut:"default", title: todoTitle, text: todoTask}]);
+    setTodoTitle("");
+    setTodoTask("");
   }
+
+  console.log(todoTitle);
   return (
     <BodyCustom >
     <CreateTaskZone> 
       <InputCustom>
-      <InputCreateTitle placeholder="Title" onChange={((event,saveText)=>{
-      todoInput(event,setTodoTitle)
+      <InputCreateTitle value={todoTitle} type="text" maxLength="25" placeholder="Title" onChange={((event,saveText)=>{
+      todoInput(event,setTodoTitle);
     })} >
     </InputCreateTitle>
-    <InputCreateText   placeholder="Task" onChange={((event,saveText)=>{
+    <InputCreateText value={todoTask} type="text" required maxLength="50" placeholder="Task" onChange={((event,saveText)=>{
       todoInput(event,setTodoTask)
       })}>
     </InputCreateText>
     <AddButton onClick={addButton}>ADD</AddButton>
     </InputCustom>
     
-    <div>
+    
       {storage.map((taskItem,index) => {
       return(
         <TaskCustom key={index}>
-          <div>
-            <InputCustomTitle>{taskItem.title}</InputCustomTitle>
-            <InputCustomText>{taskItem.text}</InputCustomText>
-            <Checkbox type="checkbox"/>
-            <button onClick={() => {
+            <InputCustomTitle >{taskItem.title}</InputCustomTitle>
+            <InputCustomText >{taskItem.text}</InputCustomText>
+            <ContainerChangeStatutButton>
+            <ChangeStatutButton onClick={() => {
               urgentButton(index)
-            }}>Urgentclic</button>
-          </div>
+            }}>Urgent </ChangeStatutButton>
+            <ChangeStatutButton onClick={() => {
+              nonUrgentButton(index)
+            }}
+            >Non urgent</ChangeStatutButton>
+
+            <ChangeStatutButton onClick={() => {
+              supprButton(index)
+            }}
+            >x</ChangeStatutButton>
+            </ContainerChangeStatutButton>
+          
 
         </TaskCustom>
       )
 
     })}
-    
-    </div>
     </CreateTaskZone>
     <UrgentZone storage={storage}/>
-    <NonUrgentZone/>
+    <NonUrgentZone storage={storage}/>
     </BodyCustom> 
   );
 }
