@@ -3,10 +3,15 @@ import styled from '@emotion/styled'
 export const TaskCustom = styled.div`
 margin:10px;
 display:flex;
-justify-content:center;
-min-width:200px;
-background-color:${({theme}) => theme.color.lightBlue};
+
+background-color:${({theme}) => theme.color.grey};
 border-radius:5px;
+border: solid 1px orange;
+max-width:250px;
+min-height:150px;
+flex-direction:column;
+justify-content:space-around;
+box-shadow: 10px 5px 5px grey;
 
 `;
 
@@ -17,11 +22,13 @@ align-items:flex-start;
 `;
 
 export const InputCustomTitle = styled.div`
-border: solid 1px black;
+border: solid 1px pink;
+margin-bottom:10px;
 `;
 
 export const InputCustomText = styled.div`
-border: solid 1px black;
+border: solid 1px red;
+hyphens: auto;
 `;
 
 export const Checkbox = styled.input`
@@ -65,6 +72,14 @@ margin:5px;
 
 export const InputCreateText = styled(InputCreateTitle)`
 height:40px;
+`;
 
+export const ChangeStatutButton = styled(AddButton)`
+border: solid 1px blue;
 
+`;
+export const ContainerChangeStatutButton = styled.div`
+border: solid 1px yellow;
+display:flex;
+justify-content:space-around;
 `;
