@@ -1,8 +1,7 @@
 import {React} from 'react';
-import {BodyCustom, TaskCustom,TitleCustom} from './styled';
+import {BodyCustom, TaskCustom,TitleCustom, ChangeStatutButton} from './styled';
 
 export default function UrgentZone({storage}) {
-console.log(storage);
 
   return (
 
@@ -10,7 +9,6 @@ console.log(storage);
       <TitleCustom>Liste des task urgentes</TitleCustom>
       {
         storage.map((task,index) => {
-          console.log(task.statut === "urgent");
 
          if (task.statut === "urgent") {
 
@@ -18,13 +16,11 @@ console.log(storage);
             <TaskCustom>
               <div>{task.title}</div>
               <div>{task.text}</div>
-
+              <ChangeStatutButton>Reset</ChangeStatutButton>
             </TaskCustom>
-           
           )
          }
          return null;
-       
         })
       }
     </BodyCustom> 

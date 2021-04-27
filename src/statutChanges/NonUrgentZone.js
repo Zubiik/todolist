@@ -1,10 +1,17 @@
 import {React} from 'react';
-import {BodyCustom, TaskCustom,TitleCustom} from './styled';
+import {BodyCustom, TaskCustom,TitleCustom,ChangeStatutButton} from './styled';
 
 export default function NonUrgentZone({storage}) {
 
-  return (
+  const ChangeTaskStatut = (task,index) => {
+task.statut= "default") 
 
+
+
+console.log(task.statut);
+  }
+
+  return (
     <BodyCustom>
       <TitleCustom>Liste des task peu urgentes</TitleCustom>
       {
@@ -15,7 +22,9 @@ export default function NonUrgentZone({storage}) {
             <TaskCustom>
               <div>{task.title}</div>
               <div>{task.text}</div>
+              <ChangeStatutButton onClick={ () => ChangeTaskStatut(task,index)
 
+              }>Reset</ChangeStatutButton>
             </TaskCustom>
           )
          }

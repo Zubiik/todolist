@@ -6,12 +6,12 @@ import reportWebVitals from './reportWebVitals';
 import { ThemeProvider} from '@emotion/react';
 import { theme } from "./theme";
 import {HomeBody} from './styled';
-
+import "./index.css";
 
 ReactDOM.render(
   <React.StrictMode>
   <HomeBody>
-     <ThemeProvider theme={theme}>
+  <ThemeProvider theme={theme}>
     <TodoList />
     </ThemeProvider></HomeBody>
   </React.StrictMode>,

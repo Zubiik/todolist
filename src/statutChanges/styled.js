@@ -9,7 +9,7 @@ margin:5px;
 padding:5px;
 border-radius:5px;
 `;
- export const TaskCustom = styled.div`
+export const TaskCustom = styled.div`
 margin:10px;
 display:flex;
 width:250px;
@@ -20,10 +20,19 @@ border: solid 1px orange;
 flex-direction:column;
 justify-content:space-around;
 box-shadow: 10px 5px 5px grey;
+`;
 
- `;
-
- export const TitleCustom = styled.div`
+export const TitleCustom = styled.div`
 color:${({theme}) => theme.color.black};
 
- `;
+`;
+
+export const ChangeStatutButton = styled.div`
+display:flex;
+justify-content:center;
+background-color:${({theme}) => theme.color.lightBlue};
+color:${({theme}) => theme.color.white};
+border-radius:5px;
+padding:5px;
+box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.22);
+`;
