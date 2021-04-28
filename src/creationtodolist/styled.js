@@ -5,7 +5,6 @@ margin:10px;
 display:flex;
 background-color:${({theme}) => theme.color.grey};
 border-radius:5px;
-border: solid 1px orange;
 width:250px;
 min-height:150px;
 flex-direction:column;
@@ -15,22 +14,19 @@ position:relative;
 `;
 
 export const BodyCustom = styled.div `
-border: solid 1px pink;
 display:flex;
 border-radius:5px;
 `;
 
 export const InputCustomTitle = styled.div`
-border: solid 1px pink;
 background-color:${({theme}) => theme.color.white};
-margin:10px;
+margin:5px;
+padding:10px;
 width:80%;
 border-radius:5px;
 `;
 
 export const InputCustomText = styled(InputCustomTitle)`
-border: solid 1px red;
-hyphens: auto;
 `;
 
 
@@ -74,17 +70,15 @@ height:40px;
 `;
 
 export const ChangeStatutButton = styled(AddButton)`
-border: solid 1px blue;
 `;
 
-export const RemoveButton = styled(AddButton)`
+export const RemoveButtonCustom = styled(AddButton)`
 background-color:${({theme}) => theme.color.orange};
 position:absolute;
 top:5px; right:5px;
 `;
 
 export const ContainerChangeStatutButton = styled.div`
-border: solid 1px yellow;
 display:flex;
 justify-content:space-around;
 `;
