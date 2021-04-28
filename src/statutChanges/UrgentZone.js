@@ -1,7 +1,16 @@
 import {React} from 'react';
-import {BodyCustom, TaskCustom,TitleCustom, ChangeStatutButton} from './styled';
+import RemoveButton from '../RemoveButton';
+import {BodyCustom,InputCustomTitle,InputCustomText, TaskCustom,TitleCustom, ChangeStatutButton} from './styled';
 
-export default function UrgentZone({storage}) {
+export default function UrgentZone({setStorage, storage}) {
+
+  const ChangeTaskStatut = (task,index) => {
+  task.statut= "default";
+    setStorage([...storage]);
+
+
+console.log(task.statut);
+  }
 
   return (
 
@@ -14,9 +23,11 @@ export default function UrgentZone({storage}) {
 
              return(
             <TaskCustom>
-              <div>{task.title}</div>
-              <div>{task.text}</div>
-              <ChangeStatutButton>Reset</ChangeStatutButton>
+              <InputCustomTitle>{task.title}</InputCustomTitle>
+              <InputCustomText>{task.text}</InputCustomText>
+              <ChangeStatutButton onClick={() => { ChangeTaskStatut(task,index)
+              }}>Reset</ChangeStatutButton>
+              <RemoveButton storage={storage} setStorage={setStorage} index={index} />
             </TaskCustom>
           )
          }

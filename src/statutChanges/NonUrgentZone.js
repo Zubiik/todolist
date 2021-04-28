@@ -1,14 +1,12 @@
 import {React} from 'react';
-import {BodyCustom, TaskCustom,TitleCustom,ChangeStatutButton} from './styled';
+import {BodyCustom, TaskCustom,InputCustomTitle,InputCustomText, TitleCustom,ChangeStatutButton} from './styled';
+import RemoveButton from '../RemoveButton';
 
-export default function NonUrgentZone({storage}) {
+export default function NonUrgentZone({setStorage, storage}) {
 
   const ChangeTaskStatut = (task,index) => {
-task.statut= "default") 
-
-
-
-console.log(task.statut);
+  task.statut= "default";
+    setStorage([...storage]);
   }
 
   return (
@@ -16,20 +14,22 @@ console.log(task.statut);
       <TitleCustom>Liste des task peu urgentes</TitleCustom>
       {
         storage.map((task,index) => {
-         if (task.statut === "nonUrgent") {
+        if (task.statut === "nonUrgent") {
 
-             return(
+            return(
             <TaskCustom>
-              <div>{task.title}</div>
-              <div>{task.text}</div>
+              <InputCustomTitle>{task.title}</InputCustomTitle>
+              <InputCustomText>{task.text}</InputCustomText>
               <ChangeStatutButton onClick={ () => ChangeTaskStatut(task,index)
 
               }>Reset</ChangeStatutButton>
+              <RemoveButton storage={storage} setStorage={setStorage} index={index} />
+
             </TaskCustom>
           )
-         }
-         return null;
-       
+        }
+        return null;
+      
         })
       }
     </BodyCustom> 

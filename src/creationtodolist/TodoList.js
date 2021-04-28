@@ -1,9 +1,10 @@
 import {React,useState} from 'react';
-import {TaskCustom,RemoveButton, ChangeStatutButton,ContainerChangeStatutButton, InputCreateTitle,InputCreateText, BodyCustom,AddButton, InputCustom, InputCustomTitle, InputCustomText, Checkbox,CreateTaskZone} from "./styled.js";
+import {TaskCustom, ChangeStatutButton,ContainerChangeStatutButton, InputCreateTitle,InputCreateText, BodyCustom,AddButton, InputCustom, InputCustomTitle, InputCustomText,CreateTaskZone} from "./styled.js";
 import UrgentZone from '../statutChanges/UrgentZone';
 import NonUrgentZone from '../statutChanges/NonUrgentZone';
+import RemoveButton from '../RemoveButton';
 
-export default function TodoList({moovePostit}) {
+export default function TodoList() {
 
   const [todoTitle, setTodoTitle] = useState("");
   const [todoTask, setTodoTask] = useState("");
@@ -19,10 +20,6 @@ export default function TodoList({moovePostit}) {
     storageCopy[index].statut = "urgent";
     setStorage([...storageCopy]);
   }
-const supprButton = (selectedItemIndex) => {
-  storage.pop(selectedItemIndex)
-  setStorage([...storage]);
-    }
 
   const nonUrgentButton = (index) => {
     var storageCopy = storage;
@@ -37,7 +34,9 @@ const supprButton = (selectedItemIndex) => {
   }
   return (
     <BodyCustom >
+      
     <CreateTaskZone> 
+      <div>TODO LIST</div>
       <InputCustom>
       <InputCreateTitle value={todoTitle} type="text" maxLength="25" placeholder="Title" onChange={((event,saveText)=>{
       todoInput(event,setTodoTitle);
@@ -59,17 +58,17 @@ const supprButton = (selectedItemIndex) => {
             <InputCustomTitle >{taskItem.title}</InputCustomTitle>
             <InputCustomText >{taskItem.text}</InputCustomText>
             <ContainerChangeStatutButton>
+
             <ChangeStatutButton onClick={() => {
               urgentButton(index)
             }}>Urgent </ChangeStatutButton>
+
             <ChangeStatutButton onClick={() => {
               nonUrgentButton(index)
-            }}
-            >Non urgent</ChangeStatutButton>
-            <RemoveButton onClick={() => {
-              supprButton(index)
-            }}
-            >x</RemoveButton>
+            }}>Non urgent</ChangeStatutButton>
+
+          <RemoveButton storage={storage} setStorage={setStorage} index={index}/>
+
             </ContainerChangeStatutButton>
         </TaskCustom>
       )
@@ -79,8 +78,8 @@ const supprButton = (selectedItemIndex) => {
         
     })}
     </CreateTaskZone>
-    <UrgentZone storage={storage}/>
-    <NonUrgentZone storage={storage}/>
+    <UrgentZone storage={storage} setStorage={setStorage} />
+    <NonUrgentZone storage={storage} setStorage={setStorage}/>
     </BodyCustom> 
   );
 }
