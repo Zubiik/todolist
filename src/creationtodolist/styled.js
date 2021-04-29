@@ -2,6 +2,7 @@ import styled from '@emotion/styled'
 
 export const TaskCustom = styled.div`
 margin:10px;
+padding:10px;
 display:flex;
 background-color:${({theme}) => theme.color.grey};
 border-radius:5px;
@@ -10,6 +11,7 @@ min-height:150px;
 flex-direction:column;
 justify-content:space-around;
 position:relative;
+box-shadow: 11px 9px 30px -5px rgba(0,0,0,0.54);
 
 `;
 
@@ -20,15 +22,14 @@ border-radius:5px;
 
 export const InputCustomTitle = styled.div`
 background-color:${({theme}) => theme.color.white};
-margin:5px;
-padding:10px;
+margin:2px;
+padding:15px;
 width:80%;
 border-radius:5px;
 `;
 
 export const InputCustomText = styled(InputCustomTitle)`
 `;
-
 
 
 export const CreateTaskZone = styled.div`
@@ -54,8 +55,7 @@ background-color:${({theme}) => theme.color.lightBlue};
 color:${({theme}) => theme.color.white};
 border-radius:5px;
 padding:5px;
-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.22);
-`;
+box-shadow: 10px 10px 21px -1px rgba(0,0,0,0.57);`;
 
 export const InputCreateTitle = styled.input`
 display:flex;
@@ -76,6 +76,8 @@ export const RemoveButtonCustom = styled(AddButton)`
 background-color:${({theme}) => theme.color.orange};
 position:absolute;
 top:5px; right:5px;
+padding:5px;
+box-shadow: 10px 10px 21px -1px rgba(0,0,0,0.57);
 `;
 
 export const ContainerChangeStatutButton = styled.div`
