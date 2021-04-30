@@ -1,23 +1,26 @@
-import {React} from 'react';
-import {RemoveButtonCustom} from './creationtodolist/styled';
+import { React } from "react";
+import { RemoveButtonCustom } from "./creationtodolist/styled";
 
-export default function RemoveButton({storage, setStorage, index}) {
-
-    const removeCallback = (index) => {
-    var copyStorage = storage
-    copyStorage.filter((index) => {
-        
-    setStorage([...copyStorage]);
-        console.log(storage);
+export default function RemoveButton({ storage, setStorage, index }) {
+  const removeCallback = (index) => {
+    const storageFiltered = storage.filter((task, selectedIndex) => {
+      if (index === selectedIndex) {
+        return false;
+      }
+      return task;
     });
-    }
-    
-    return(
+    setStorage([...storageFiltered]);
+  };
+
+  return (
     <div>
-        <RemoveButtonCustom onClick={() => {
-            removeCallback(index)
-            }}
-            >x</RemoveButtonCustom> 
-    </div> 
-    );
+      <RemoveButtonCustom
+        onClick={() => {
+          removeCallback(index);
+        }}
+      >
+        x
+      </RemoveButtonCustom>
+    </div>
+  );
 }
