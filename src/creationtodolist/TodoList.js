@@ -15,11 +15,13 @@ import {
 import UrgentZone from "../statutChanges/UrgentZone";
 import NonUrgentZone from "../statutChanges/NonUrgentZone";
 import RemoveButton from "../RemoveButton";
+import EditableTask from "../savebutton/EditableTask.js";
 
 export default function TodoList() {
   const [todoTitle, setTodoTitle] = useState("");
   const [todoTask, setTodoTask] = useState("");
   const [storage, setStorage] = useState([]);
+  const [editTask, setEditTask] = useState(false);
 
   const todoInput = (event, saveText) => {
     saveText(event.target.value);
@@ -76,8 +78,23 @@ export default function TodoList() {
           if (taskItem.statut === "default") {
             return (
               <TaskCustom key={index}>
-                <CustomTitle>{taskItem.title}</CustomTitle>
-                <CustomText>{taskItem.text}</CustomText>
+                {editTask ? (
+                  false
+                ) : (
+                  <div onClick={setEditTask("coucou")}>
+                    <CustomTitle>{taskItem.title}</CustomTitle>
+                    <CustomText>{taskItem.text}</CustomText>
+                  </div>
+                )}
+                {editTask ? (
+                  true
+                ) : (
+                  <EditableTask
+                    taskItem={taskItem}
+                    storage={storage}
+                    setStorage={setStorage}
+                  />
+                )}
                 <ContainerChangeStatutButton>
                   <ChangeStatutButton
                     onClick={() => {
