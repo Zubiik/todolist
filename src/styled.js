@@ -1,7 +1,6 @@
-import styled from '@emotion/styled'
+import styled from "@emotion/styled";
 
 export const HomeBody = styled.div`
-display:flex;
-justify-content:space-between;
-
+  display: flex;
+  justify-content: space-between;
 `;

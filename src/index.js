@@ -1,21 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './styled.js';
-import TodoList from './creationtodolist/TodoList';
-import reportWebVitals from './reportWebVitals';
-import { ThemeProvider} from '@emotion/react';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./styled.js";
+import TodoList from "./creationtodolist/TodoList";
+import reportWebVitals from "./reportWebVitals";
+import { ThemeProvider } from "@emotion/react";
 import { theme } from "./theme";
-import {HomeBody} from './styled';
+import { HomeBody } from "./styled";
 import "./index.css";
 
 ReactDOM.render(
   <React.StrictMode>
-  <HomeBody>
-  <ThemeProvider theme={theme}>
-    <TodoList />
-    </ThemeProvider></HomeBody>
+    <HomeBody>
+      <ThemeProvider theme={theme}>
+        <TodoList />
+      </ThemeProvider>
+    </HomeBody>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
