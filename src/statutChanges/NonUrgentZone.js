@@ -21,7 +21,7 @@ export default function NonUrgentZone({ setStorage, storage }) {
       {storage.map((task, index) => {
         if (task.statut === "nonUrgent") {
           return (
-            <TaskCustom>
+            <TaskCustom key={index}>
               <InputCustomTitle>{task.title}</InputCustomTitle>
               <InputCustomText>{task.text}</InputCustomText>
               <ChangeStatutButton onClick={() => ChangeTaskStatut(task, index)}>

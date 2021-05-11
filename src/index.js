@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./styled.js";
-import TodoList from "./creationtodolist/TodoList";
+import PostitHandler from "./creationtodolist/PostitHandler";
 import reportWebVitals from "./reportWebVitals";
 import { ThemeProvider } from "@emotion/react";
 import { theme } from "./theme";
@@ -12,7 +12,7 @@ ReactDOM.render(
   <React.StrictMode>
     <HomeBody>
       <ThemeProvider theme={theme}>
-        <TodoList />
+        <PostitHandler />
       </ThemeProvider>
     </HomeBody>
   </React.StrictMode>,

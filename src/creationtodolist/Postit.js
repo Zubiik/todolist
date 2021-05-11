@@ -1,52 +1,34 @@
-import { React, useState } from "react";
+import { React } from "react";
 import {
   TaskCustom,
   ChangeStatutButton,
   ContainerChangeStatutButton,
   InputCreateTitle,
+  InputCustom,
   InputCreateText,
   BodyCustom,
   AddButton,
-  InputCustom,
   CustomTitle,
   CustomText,
   CreateTaskZone,
 } from "./styled.js";
-import UrgentZone from "../statutChanges/UrgentZone";
-import NonUrgentZone from "../statutChanges/NonUrgentZone";
 import RemoveButton from "../RemoveButton";
-import EditableTask from "../savebutton/EditableTask.js";
+import EditablePostit from "./EditablePostit.js";
 
-export default function TodoList() {
-  const [todoTitle, setTodoTitle] = useState("");
-  const [todoTask, setTodoTask] = useState("");
-  const [storage, setStorage] = useState([]);
-  const [editTask, setEditTask] = useState(false);
-
-  const todoInput = (event, saveText) => {
-    saveText(event.target.value);
-  };
-
-  const urgentButton = (index) => {
-    var storageCopy = storage;
-    storageCopy[index].statut = "urgent";
-    setStorage([...storageCopy]);
-  };
-
-  const nonUrgentButton = (index) => {
-    var storageCopy = storage;
-    storageCopy[index].statut = "nonUrgent";
-    setStorage([...storageCopy]);
-  };
-
-  const addButton = () => {
-    setStorage([
-      ...storage,
-      { statut: "default", title: todoTitle, text: todoTask },
-    ]);
-    setTodoTitle("");
-    setTodoTask("");
-  };
+export default function TodoList({
+  addButton,
+  nonUrgentButton,
+  urgentButton,
+  todoInput,
+  todoTitle,
+  setTodoTitle,
+  todoTask,
+  setTodoTask,
+  storage,
+  setStorage,
+  editTask,
+  setEditTask,
+}) {
   return (
     <BodyCustom>
       <CreateTaskZone>
@@ -78,23 +60,19 @@ export default function TodoList() {
           if (taskItem.statut === "default") {
             return (
               <TaskCustom key={index}>
-                {editTask ? (
-                  false
-                ) : (
-                  <div onClick={setEditTask("coucou")}>
-                    <CustomTitle>{taskItem.title}</CustomTitle>
-                    <CustomText>{taskItem.text}</CustomText>
-                  </div>
-                )}
-                {editTask ? (
-                  true
-                ) : (
-                  <EditableTask
-                    taskItem={taskItem}
-                    storage={storage}
-                    setStorage={setStorage}
-                  />
-                )}
+                <div
+                  onClick={() =>
+                    editTask ? (
+                      false
+                    ) : (
+                      <div>
+                        <CustomTitle>{taskItem.title}</CustomTitle>
+                        <CustomText>{taskItem.text}</CustomText>
+                      </div>
+                    )
+                  }
+                ></div>
+
                 <ContainerChangeStatutButton>
                   <ChangeStatutButton
                     onClick={() => {
@@ -125,8 +103,6 @@ export default function TodoList() {
           return null;
         })}
       </CreateTaskZone>
-      <UrgentZone storage={storage} setStorage={setStorage} />
-      <NonUrgentZone storage={storage} setStorage={setStorage} />
     </BodyCustom>
   );
 }
