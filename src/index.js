@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import PostitHandler from "./creationtodolist/PostitHandler";
+import PostitHandler from "./postItHandler/PostitHandler";
 import reportWebVitals from "./reportWebVitals";
 import { ThemeProvider } from "@emotion/react";
 import { theme } from "./theme";

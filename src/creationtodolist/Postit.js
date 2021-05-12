@@ -62,13 +62,13 @@ export default function TodoList({
               <TaskCustom key={index}>
                 <div
                   onClick={() =>
-                    editTask ? (
-                      false
-                    ) : (
+                    editTask === false ? (
                       <div>
                         <CustomTitle>{taskItem.title}</CustomTitle>
                         <CustomText>{taskItem.text}</CustomText>
                       </div>
+                    ) : (
+                      <input></input>
                     )
                   }
                 ></div>
