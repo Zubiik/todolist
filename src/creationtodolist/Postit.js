@@ -1,4 +1,5 @@
 import { React } from "react";
+import EditablePostit from "../editablePostit/EditablePostit";
 import {
   TaskCustom,
   ChangeStatutButton,
@@ -59,18 +60,23 @@ export default function TodoList({
           if (taskItem.statut === "default") {
             return (
               <TaskCustom key={index}>
-                <div
-                  onClick={() =>
-                    editTask === false ? (
-                      <div>
-                        <CustomTitle>{taskItem.title}</CustomTitle>
-                        <CustomText>{taskItem.text}</CustomText>
-                      </div>
-                    ) : (
-                      <input></input>
-                    )
-                  }
-                ></div>
+                {editTask === false ? (
+                  <div onClick={() => setEditTask(true)}>
+                    <CustomTitle>{taskItem.title}</CustomTitle>
+                    <CustomText>{taskItem.text}</CustomText>
+                  </div>
+                ) : (
+                  <div>
+                    <input
+                      placeholder="edit title"
+                      onChange={(event, saveText) => {
+                        todoInput(event, setTodoTask);
+                      }}
+                    ></input>
+                    <input placeholder="edit task"></input>
+                    <EditablePostit />
+                  </div>
+                )}
 
                 <ContainerChangeStatutButton>
                   <ChangeStatutButton
