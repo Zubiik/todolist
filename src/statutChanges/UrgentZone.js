@@ -13,8 +13,6 @@ export default function UrgentZone({ setStorage, storage }) {
   const ChangeTaskStatut = (task, index) => {
     task.statut = "default";
     setStorage([...storage]);
-
-    console.log(task.statut);
   };
 
   return (
