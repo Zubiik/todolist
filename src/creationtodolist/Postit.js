@@ -13,7 +13,6 @@ import {
   CreateTaskZone,
 } from "./styled.js";
 import RemoveButton from "../RemoveButton";
-import EditablePostit from "./EditablePostit.js";
 
 export default function TodoList({
   addButton,
