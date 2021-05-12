@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 
 export const BodyCustom = styled.div`
+  border: 1px solid red;
   width: 250px;
   display: flex;
   flex-direction: column;
@@ -10,6 +11,7 @@ export const BodyCustom = styled.div`
   position: relative;
 `;
 export const TaskCustom = styled.div`
+  border: 1px solid red;
   margin: 10px;
   padding: 10px;
   padding-bottom: 0px;

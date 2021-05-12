@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 
 export const TaskCustom = styled.div`
+  border-color: 1px solid red;
   margin: 10px;
   padding: 10px;
   display: flex;
@@ -15,6 +16,7 @@ export const TaskCustom = styled.div`
 `;
 
 export const BodyCustom = styled.div`
+  border: 1px solid yellow;
   display: flex;
   border-radius: 5px;
 `;
