@@ -29,6 +29,10 @@ export default function TodoList({
   editTask,
   setEditTask,
   saveButton,
+  modifTodoTitle,
+  modifTodoTask,
+  setModifTodoTitle,
+  setModifTodoTask,
 }) {
   return (
     <BodyCustom>
@@ -71,13 +75,13 @@ export default function TodoList({
                     <input
                       placeholder="edit title"
                       onChange={(event, saveText) => {
-                        todoInput(event, setTodoTitle);
+                        todoInput(event, setModifTodoTitle);
                       }}
                     ></input>
                     <input
                       placeholder="edit task"
                       onChange={(event, saveText) => {
-                        todoInput(event, setTodoTask);
+                        todoInput(event, setModifTodoTask);
                       }}
                     ></input>
                     <EditablePostit

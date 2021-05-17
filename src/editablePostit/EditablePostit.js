@@ -1,8 +1,12 @@
 import { React } from "react";
-
-export default function EditablePostit({ storage, setStorage }) {
-  const edit = () => {
-    setStorage([...storage, { statut: "default", title: "", text: "" }]);
-  };
-  return <div>save</div>;
+export default function EditablePostit({ storage, setStorage, saveButton }) {
+  return (
+    <div
+      onClick={() => {
+        saveButton();
+      }}
+    >
+      save
+    </div>
+  );
 }

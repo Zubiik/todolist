@@ -6,6 +6,8 @@ import Postit from "../creationtodolist/Postit";
 
 export default function TodoList() {
   const [todoTitle, setTodoTitle] = useState("");
+  const [modifTodoTitle, setModifTodoTitle] = useState("");
+  const [modifTodoTask, setModifTodoTask] = useState("");
   const [todoTask, setTodoTask] = useState("");
   const [storage, setStorage] = useState([]);
   const [editTask, setEditTask] = useState(false);
@@ -29,7 +31,7 @@ export default function TodoList() {
     var storageCopy = storage;
     setStorage([
       storageCopy,
-      { statut: "default", title: todoTitle, text: todoTask },
+      { statut: "default", title: modifTodoTitle, text: modifTodoTask },
     ]);
     setTodoTitle("");
     setTodoTask("");
@@ -60,6 +62,10 @@ export default function TodoList() {
         editTask={editTask}
         setEditTask={setEditTask}
         saveButton={saveButton}
+        modifTodoTitle={modifTodoTitle}
+        modifTodoTask={modifTodoTask}
+        setModifTodoTitle={setModifTodoTitle}
+        setModifTodoTask={setModifTodoTask}
       />
       <UrgentZone storage={storage} setStorage={setStorage} />
       <NonUrgentZone storage={storage} setStorage={setStorage} />
