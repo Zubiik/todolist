@@ -82,7 +82,7 @@ export default function TodoList({
                     ></input>
                     <EditablePostit
                       saveButton={() => {
-                        saveButton(setEditTask);
+                        saveButton(setEditTask(false));
                       }}
                     />
                   </div>
