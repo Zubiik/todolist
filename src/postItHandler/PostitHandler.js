@@ -25,6 +25,16 @@ export default function TodoList() {
     setStorage([...storageCopy]);
   };
 
+  const saveButton = (index) => {
+    var storageCopy = storage;
+    setStorage([
+      storageCopy,
+      { statut: "default", title: todoTitle, text: todoTask },
+    ]);
+    setTodoTitle("");
+    setTodoTask("");
+  };
+
   const addButton = () => {
     setStorage([
       ...storage,
@@ -49,6 +59,7 @@ export default function TodoList() {
         setStorage={setStorage}
         editTask={editTask}
         setEditTask={setEditTask}
+        saveButton={saveButton}
       />
       <UrgentZone storage={storage} setStorage={setStorage} />
       <NonUrgentZone storage={storage} setStorage={setStorage} />

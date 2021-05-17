@@ -28,6 +28,7 @@ export default function TodoList({
   setStorage,
   editTask,
   setEditTask,
+  saveButton,
 }) {
   return (
     <BodyCustom>
@@ -70,11 +71,20 @@ export default function TodoList({
                     <input
                       placeholder="edit title"
                       onChange={(event, saveText) => {
+                        todoInput(event, setTodoTitle);
+                      }}
+                    ></input>
+                    <input
+                      placeholder="edit task"
+                      onChange={(event, saveText) => {
                         todoInput(event, setTodoTask);
                       }}
                     ></input>
-                    <input placeholder="edit task"></input>
-                    <EditablePostit />
+                    <EditablePostit
+                      saveButton={() => {
+                        saveButton(setEditTask);
+                      }}
+                    />
                   </div>
                 )}
 
